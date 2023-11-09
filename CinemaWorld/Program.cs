@@ -22,12 +22,19 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredUniqueChars = 1;
 });
 
-
+// Cau hinh de dam bao su dong y cua nguoi dung can kiem tra
+builder.Services.Configure<CookiePolicyOptions>(
+    options =>
+    {
+        options.CheckConsentNeeded = context => true;
+        options.MinimumSameSitePolicy = SameSiteMode.None;
+        // Cho phep yeu cau toi tu cac trang khac
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
+builder.Services.AddRazorPages();
+builder.Services.AddMvc();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,12 +44,14 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseResponseCompression();
+app.UseStatusCodePagesWithRedirects("/Home/HttpError?statusCode={0}"); // Midleware for missing page
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseCookiePolicy();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
