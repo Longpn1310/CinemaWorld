@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Promotion;
+using static CinemaWorld.Global.Common.DataValidation.Promotion;
 namespace CinemaWorld.Models;
 
 public partial class Promotion : BaseDeletableModel<int>

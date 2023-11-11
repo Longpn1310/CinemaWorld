@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Country;
+using static CinemaWorld.Global.Common.DataValidation.Country;
 
 namespace CinemaWorld.Models;
 

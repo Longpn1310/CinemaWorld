@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-using static CinemaWorld.Models.DataValidation;
-using static CinemaWorld.Models.DataValidation.ContactFormEntry;
+using static CinemaWorld.Global.Common.DataValidation;
+using static CinemaWorld.Global.Common.DataValidation.ContactFormEntry;
 
 namespace CinemaWorld.Models
 {

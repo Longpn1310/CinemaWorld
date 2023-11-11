@@ -1,5 +1,5 @@
 ﻿using CinemaWorld.Data.Common.Models;
-using CinemaWorld.Data.Models.Enumerations;
+using CinemaWorld.ViewModels.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

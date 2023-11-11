@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Models
+﻿namespace CinemaWorld.Global.Common
 {
     //Giới hạn về quy tắc các trường dữ liệu khác nhau
     public static class DataValidation

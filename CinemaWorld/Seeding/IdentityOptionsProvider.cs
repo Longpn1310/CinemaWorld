@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Data
+﻿    namespace CinemaWorld.Data
 {
     using Microsoft.AspNetCore.Identity;
 

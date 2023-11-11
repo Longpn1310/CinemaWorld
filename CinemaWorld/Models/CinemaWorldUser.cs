@@ -7,8 +7,9 @@ namespace CinemaWorld.Data.Models
 
     using CinemaWorld.Data.Common;
     using CinemaWorld.Data.Common.Models;
-    using CinemaWorld.Data.Models.Enumerations;
+    using CinemaWorld.Global.Common;
     using CinemaWorld.Models;
+    using CinemaWorld.ViewModels.Enumerations;
     using Microsoft.AspNetCore.Identity;
 
     public class CinemaWorldUser : IdentityUser, IAuditInfo, IDeletableEntity

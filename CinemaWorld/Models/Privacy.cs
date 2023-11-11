@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Privacy;
+using static CinemaWorld.Global.Common.DataValidation.Privacy;
 
 namespace CinemaWorld.Models;
 

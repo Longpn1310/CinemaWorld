@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Data.Models.Enumerations
+﻿namespace CinemaWorld.ViewModels.Enumerations
 {
     using System.ComponentModel.DataAnnotations;
 

@@ -44,8 +44,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-app.UseResponseCompression();
-app.UseStatusCodePagesWithRedirects("/Home/HttpError?statusCode={0}"); // Midleware for missing page
+// Midleware for missing page
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseCookiePolicy();
@@ -57,5 +56,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

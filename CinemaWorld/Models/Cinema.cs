@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Cinema;
+using static CinemaWorld.Global.Common.DataValidation.Cinema;
 namespace CinemaWorld.Models;
 
 public partial class Cinema : BaseDeletableModel<int>

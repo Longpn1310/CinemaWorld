@@ -1,9 +1,9 @@
 ﻿using CinemaWorld.Data.Common.Models;
-using CinemaWorld.Data.Models.Enumerations;
+using CinemaWorld.ViewModels.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Movie;
+using static CinemaWorld.Global.Common.DataValidation.Movie;
 
 namespace CinemaWorld.Models;
 
@@ -72,5 +72,5 @@ public class Movie : BaseDeletableModel<int>
 
     public virtual ICollection<MovieReview> MovieReviews { get; set; } = new List<MovieReview>();
 
-    public virtual ICollection<StarRating> StarRatings { get; set; } = new List<StarRating>();
+    public virtual ICollection<StarRating> Ratings { get; set; } = new List<StarRating>();
 }

@@ -1,4 +1,5 @@
 ﻿using CinemaWorld.Data.Common.Models;
+using CinemaWorld.Global.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

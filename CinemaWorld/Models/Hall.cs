@@ -1,9 +1,9 @@
 ﻿using CinemaWorld.Data.Common.Models;
-using CinemaWorld.Data.Models.Enumerations;
+using CinemaWorld.ViewModels.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Hall;
+using static CinemaWorld.Global.Common.DataValidation.Hall;
 
 namespace CinemaWorld.Models;
 

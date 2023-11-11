@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation;
+using static CinemaWorld.Global.Common.DataValidation;
 namespace CinemaWorld.Areas.Identity.Pages.Account.InputModels
 {
     public class AjaxRegisterInputModel

@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using static CinemaWorld.Models.DataValidation.Review;
+using static CinemaWorld.Global.Common.DataValidation.Review;
 namespace CinemaWorld.Models;
 
 public partial class Review : BaseDeletableModel<int>

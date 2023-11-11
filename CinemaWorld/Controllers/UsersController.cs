@@ -1,9 +1,9 @@
 ﻿using CinemaWorld.Areas.Identity.Pages.Account.InputModels;
 using CinemaWorld.Data.Models;
-using CinemaWorld.Data.Models.Enumerations;
 using CinemaWorld.Global.Common;
 using CinemaWorld.Helper;
 using CinemaWorld.Infrastructure;
+using CinemaWorld.ViewModels.Enumerations;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
