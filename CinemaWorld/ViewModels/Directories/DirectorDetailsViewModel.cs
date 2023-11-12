@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CinemaWorld.ViewModels.Directories
 {
-    public class DirectorDetailViewModel : IMapFrom<Director>
+    public class DirectorDetailsViewModel : IMapFrom<Director>
     {
         public int Id { get; set; }
         [Display(Name = "FirstNameDisplayName")]

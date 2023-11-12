@@ -9,8 +9,26 @@ namespace CinemaWorld.Services.Services.Data.Contract
     {
         Task<MovieDetailsViewModel> CreateAsync(MovieCreateInputModel movieCreateInputModel);
 
-        //Iqueryable khong thuc hien ngay lap tuc ma doi den khi ket qua cu the duoc yeu cau
-        //  
+        Task EditAsync(MovieEditViewModel movieEditViewModel);
+
+        Task<IEnumerable<TViewModel>> GetAllMoviesAsync<TViewModel>();
+
+        Task<IEnumerable<TViewModel>> GetTopImdbMoviesAsync<TViewModel>(decimal rating = 0, int count = 0);
+
+        Task<IEnumerable<TViewModel>> GetTopRatingMoviesAsync<TViewModel>(decimal rating = 0, int count = 0);
+
+        Task<IEnumerable<TViewModel>> GetRecentlyAddedMoviesAsync<TViewModel>(int count = 0);
+
+        Task<IEnumerable<TViewModel>> GetMostPopularMoviesAsync<TViewModel>(int count = 0);
+
+        Task<IEnumerable<TViewModel>> GetAllMovieGenresAsync<TViewModel>();
+
+        Task<IEnumerable<TViewModel>> GetAllMovieCountriesAsync<TViewModel>();
+
         IQueryable<TViewModel> GetAllMoviesAsQueryeable<TViewModel>();
+
+        IQueryable<MovieDetailsViewModel> GetByGenreNameAsQueryable(string name);
+
+        IQueryable<TViewModel> GetAllMoviesByFilterAsQueryeable<TViewModel>(string letter = null);
     }
 }

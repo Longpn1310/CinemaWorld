@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CinemaWorld.Data;
 using CinemaWorld.Data.Models;
+using CinemaWorld.Services.Services.Data.Contract;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -35,6 +36,7 @@ builder.Services.Configure<CookiePolicyOptions>(
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
+builder.Services.AddTransient<IMoviesService, MoviesService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

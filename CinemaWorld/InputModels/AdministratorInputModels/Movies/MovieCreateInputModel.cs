@@ -8,6 +8,9 @@ using static CinemaWorld.Global.Common.ModelValidation.Director;
 using static CinemaWorld.Global.Common.ModelValidation.Genre;
 using static CinemaWorld.Global.Common.ModelValidation.Movie;
 using static CinemaWorld.Global.Common.Atrributes.AllowedExtensionAtrribute;
+using CinemaWorld.ViewModels.ViewModels.Genre;
+using CinemaWorld.ViewModels.ViewModels.Countries;
+
 namespace CinemaWorld.InputModels.AdministratorInputModels.Movies
 {
     public class MovieCreateInputModel
@@ -53,7 +56,7 @@ namespace CinemaWorld.InputModels.AdministratorInputModels.Movies
         [Required(ErrorMessage = EmptyFieldLengthError)]
         [DataType(DataType.Upload)]
         [MaxFileSize(CoverImageMaxSize)]
-        [AllowedExtensions]
+        [AllowedExtensionAtrribute]
         [Display(Name = CoverImageDisplayName)]
         public IFormFile CoverImage { get; set; }
 
@@ -64,7 +67,7 @@ namespace CinemaWorld.InputModels.AdministratorInputModels.Movies
         [Required(ErrorMessage = EmptyFieldLengthError)]
         [DataType(DataType.Upload)]
         [MaxFileSize(WallpaperMaxSize)]
-        [AllowedExtensions]
+        [AllowedExtensionAtrribute]
         [Display(Name = WallpaperDisplayName)]
         public IFormFile Wallpaper { get; set; }
 

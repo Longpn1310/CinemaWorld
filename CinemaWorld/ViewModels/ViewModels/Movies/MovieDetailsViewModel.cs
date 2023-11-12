@@ -35,10 +35,10 @@ namespace CinemaWorld.ViewModels.ViewModels.Movies
         }
         public IEnumerable<MovieGenreViewModel> MovieGenres { get; set; }
 
-        public IEnumerable<MovieCountryViewModel> MovieContries { get;set; }
+        public IEnumerable<MovieCountryViewModel> MovieCountries { get;set; }
 
         [Display(Name = nameof(Director))]
-        public DirectorDetailViewModel Director { get; set; }
+        public DirectorDetailsViewModel Director { get; set; }
 
         public decimal Rating { get; set; }
         public string Language { get; set; }

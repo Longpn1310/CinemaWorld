@@ -2,7 +2,7 @@
 {
     public interface IBaseDataService
     {
-        Task<TViewModel> GetViewModelByIdSync<TViewModel>(int id);
+        Task<TViewModel> GetViewModelByIdAsync<TViewModel>(int id);
 
         Task DeleteByIdAsync(int id);
     }
