@@ -52,7 +52,7 @@ public class Movie : BaseDeletableModel<int>
     public string WallpaperPath { get; set; } = null!;
 
     [MaxLength(ImdbLinkMaxLength)]
-    public string? Imdblink { get; set; }
+    public string? IMDBlink { get; set; }
 
     public int Length { get; set; }
 

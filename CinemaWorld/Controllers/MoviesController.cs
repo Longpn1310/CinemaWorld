@@ -38,7 +38,7 @@ namespace CinemaWorld.Controllers
             {
                 SelectedLetter = selectedLetter
             };
-            var viewModel = new MovieListingViewModel
+            var viewModel = new MoviesListingViewModel
             {
                 Movies = moviesPaginated,
                 AlphabeticalPagingViewModel = alphabeticalPagingViewModel
