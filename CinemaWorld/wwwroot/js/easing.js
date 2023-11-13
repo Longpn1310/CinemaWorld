@@ -1,4 +1,4 @@
-/*
+﻿/*
  * jQuery EasIng v1.1.2 - http://gsgd.co.uk/sandbox/jquery.easIng.php
  *
  * Uses the built In easIng capabilities added In jQuery 1.1
@@ -10,7 +10,7 @@
  */
 
 // t: current time, b: begInnIng value, c: change In value, d: duration
-
+//Thư viện easing trong jQuery áp dụng hiệu ứng animation, giúp làm mịn và tạo độ mềm cho các chuyển động trong web
 jQuery.extend( jQuery.easing,
 {
 	easeInQuad: function (x, t, b, c, d) {

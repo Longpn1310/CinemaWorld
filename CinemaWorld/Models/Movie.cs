@@ -9,8 +9,7 @@ namespace CinemaWorld.Models;
 
 public class Movie : BaseDeletableModel<int>
 {
-    public Movie() { 
-    
+    public Movie(){  
         this.MovieGenres = new HashSet<MovieGenre>();
         this.MovieReviews = new HashSet<MovieReview>();
         this.MovieCountries = new HashSet<MovieCountry>();

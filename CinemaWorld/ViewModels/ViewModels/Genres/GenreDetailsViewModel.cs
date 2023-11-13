@@ -1,5 +1,5 @@
 ﻿using CinemaWorld.Models;
-using CinemaWorld.ViewModels.Mapping;
+using CinemaWorld.Services.Services.Data.Mapping;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using static CinemaWorld.Global.Common.ModelValidation.Genre;

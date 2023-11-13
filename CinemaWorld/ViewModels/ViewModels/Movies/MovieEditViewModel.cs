@@ -1,10 +1,10 @@
 ﻿using CinemaWorld.Models;
-using CinemaWorld.ViewModels.Mapping;
 using System.ComponentModel.DataAnnotations;
 using CinemaWorld.Models;
 using static CinemaWorld.Global.Common.ModelValidation;
 using CinemaWorld.Global.Common;
 using static CinemaWorld.Global.Common.ModelValidation.Movie;
+using CinemaWorld.Services.Services.Data.Mapping;
 
 namespace CinemaWorld.ViewModels.ViewModels.Movies
 {

@@ -23,7 +23,7 @@ namespace CinemaWorld.Services.Services.Data
         private readonly IDeletableEntityRepository<MovieGenre> movieGenreRepository;
         private readonly IDeletableEntityRepository<MovieCountry> movieCountriesRepository;
         private readonly ICloudinaryService cloudinaryService;
-        public MoviesService(
+        public MoviesService( 
          IDeletableEntityRepository<Movie> moviesRepository,
          IDeletableEntityRepository<Director> directorsRepository,
          IDeletableEntityRepository<MovieGenre> movieGenreRepository,

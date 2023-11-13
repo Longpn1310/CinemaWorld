@@ -5,6 +5,10 @@ using CinemaWorld.Data.Models;
 using CinemaWorld.Services.Services.Data.Contract;
 using CinemaWorld.Services.Services.Data;
 using CinemaWorld.Services.Services.Data.Contracts;
+using static CinemaWorld.Global.Common.DataValidation;
+//using CinemaWorld.Global.Common;
+using CinemaWorld.Global.Common.Repositories;
+using CloudinaryDotNet;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -38,10 +42,15 @@ builder.Services.Configure<CookiePolicyOptions>(
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddMvc();
+// Data repositories
+builder.Services.AddScoped(typeof(IDeletableEntityRepository<>), typeof(EfDeletableEntityRepository<>));
+builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+builder.Services.AddScoped<IDbQueryRunner, DbQueryRunner>();
+
 builder.Services.AddTransient<IMoviesService, MoviesService>();
 builder.Services.AddTransient<IGenresService, GenresService>();
-builder.Services.AddTransient<ICountriesService, CountriesService>();
 builder.Services.AddTransient<ICloudinaryService, CloudinaryService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

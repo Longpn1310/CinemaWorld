@@ -13,6 +13,6 @@
                 return alphabet;
             }
         }
-        public string SelectedLetter {  get; set; }
+        public string SelectedLetter { get; set; }
     }
 }

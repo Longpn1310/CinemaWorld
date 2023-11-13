@@ -1,5 +1,5 @@
 ﻿using CinemaWorld.Models;
-using CinemaWorld.ViewModels.Mapping;
+using CinemaWorld.Services.Services.Data.Mapping;
 using System.ComponentModel.DataAnnotations;
 
 namespace CinemaWorld.ViewModels.ViewModels.Countries
