@@ -1,8 +1,8 @@
 ﻿using CinemaWorld.Models;
-using CinemaWorld.ViewModels.Mapping;
 using static CinemaWorld.Global.Common.ModelValidation.Country;
 using static CinemaWorld.Global.Common.ModelValidation;
 using System.ComponentModel.DataAnnotations;
+using CinemaWorld.Services.Services.Data.Mapping;
 
 namespace CinemaWorld.ViewModels.ViewModels.Countries
 {

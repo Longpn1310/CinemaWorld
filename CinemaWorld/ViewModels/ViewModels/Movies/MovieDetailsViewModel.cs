@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using CinemaWorld.Models;
+using CinemaWorld.Services.Services.Data.Mapping;
 using CinemaWorld.ViewModels.Directories;
 using CinemaWorld.ViewModels.Enumerations;
-using CinemaWorld.ViewModels.Mapping;
 using CinemaWorld.ViewModels.MovieComments;
 using System.ComponentModel.DataAnnotations;
 
