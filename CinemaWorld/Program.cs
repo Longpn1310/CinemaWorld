@@ -50,6 +50,10 @@ builder.Services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 builder.Services.AddTransient<IMoviesService, MoviesService>();
 builder.Services.AddTransient<IGenresService, GenresService>();
 builder.Services.AddTransient<ICloudinaryService, CloudinaryService>();
+builder.Services.AddTransient<IDirectorService, DirectorService>();
+builder.Services.AddTransient<ICountriesService, CountriesService>();
+builder.Services.AddTransient<ICinemasService, CinemasService>();
+
 
 var app = builder.Build();
 
