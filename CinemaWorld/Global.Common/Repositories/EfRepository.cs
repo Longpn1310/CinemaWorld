@@ -21,7 +21,7 @@
 
         public virtual Task AddAsync(TEntity entity) => this.DbSet.AddAsync(entity).AsTask();
 
-        public void Delete(TEntity entity) => this.DbSet.Remove(entity);
+        public virtual void Delete(TEntity entity) => this.DbSet.Remove(entity);
 
 
         public void Dispose()

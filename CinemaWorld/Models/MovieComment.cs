@@ -1,4 +1,5 @@
 ﻿using CinemaWorld.Data.Common.Models;
+using CinemaWorld.Data.Models;
 using System;
 using System.Collections.Generic;
 
@@ -9,17 +10,15 @@ public class MovieComment : BaseDeletableModel<int>
 
     public int MovieId { get; set; }
 
+    public virtual Movie Movie { get; set; }
+
     public int? ParentId { get; set; }
 
-    public string? Content { get; set; }
+    public virtual MovieComment Parent { get; set; }
 
-    public string? UserId { get; set; }
+    public string Content { get; set; }
 
-    public virtual ICollection<MovieComment> InverseParent { get; set; } = new List<MovieComment>();
+    public string UserId { get; set; }
 
-    public virtual Movie Movie { get; set; } = null!;
-
-    public virtual MovieComment? Parent { get; set; }
-
-    public virtual AspNetUser? User { get; set; }
+    public virtual CinemaWorldUser User { get; set; }
 }

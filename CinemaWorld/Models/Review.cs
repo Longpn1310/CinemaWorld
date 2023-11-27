@@ -15,11 +15,11 @@ public partial class Review : BaseDeletableModel<int>
     }
     [Required]
     [MaxLength(TitleMaxLength)]
-    public string Title { get; set; } = null!;
+    public string Title { get; set; }
 
     [Required]
     [MaxLength(DescriptionMaxLength)]
-    public string Description { get; set; } = null!;
+    public string Description { get; set; }
 
     public DateTime Date { get; set; }
 

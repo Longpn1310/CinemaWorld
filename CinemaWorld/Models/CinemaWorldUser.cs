@@ -1,5 +1,5 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
-namespace CinemaWorld.Data.Models
+namespace CinemaWorld.Models
 {
     using System;
     using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace CinemaWorld.Data.Models
     using CinemaWorld.Data.Common.Models;
     using CinemaWorld.Global.Common;
     using CinemaWorld.Models;
-    using CinemaWorld.ViewModels.Enumerations;
+    using CinemaWorld.Models.Enumerations;
     using Microsoft.AspNetCore.Identity;
 
     public class CinemaWorldUser : IdentityUser, IAuditInfo, IDeletableEntity

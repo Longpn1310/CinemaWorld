@@ -13,10 +13,10 @@ public partial class StarRating : BaseDeletableModel<int>
 
     public int MovieId { get; set; }
     [Required]
-    public string UserId { get; set; } = null!;
+    public string UserId { get; set; }
 
     public DateTime NextVoteDate { get; set; }
 
-    public virtual Movie Movie { get; set; } = null!;
+    public virtual Movie Movie { get; set; }
     public CinemaWorldUser User { get; set; }
 }

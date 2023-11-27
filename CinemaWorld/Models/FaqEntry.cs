@@ -11,9 +11,9 @@ public class FaqEntry : BaseDeletableModel<int>
 
     [Required]
     [MaxLength(QuestionMaxLength)]
-    public string Question { get; set; } = null!;
+    public string Question { get; set; }
 
     [Required]
     [MaxLength(AnswerMaxLength)]
-    public string Answer { get; set; } = null!;
+    public string Answer { get; set; }
 }

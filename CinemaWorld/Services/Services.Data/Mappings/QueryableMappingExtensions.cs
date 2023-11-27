@@ -1,9 +1,9 @@
-﻿using AutoMapper.QueryableExtensions;
-using System.Linq.Expressions;
-
+﻿
 namespace CinemaWorld.Services.Services.Data.Mapping
 {
-
+    using System.Linq;
+    using System.Linq.Expressions;
+    using AutoMapper.QueryableExtensions;
     public static class QueryableMappingExtensions
     {
         //Phương thức mở rộng cho IQueryable<TDestination>
@@ -14,13 +14,25 @@ namespace CinemaWorld.Services.Services.Data.Mapping
             this IQueryable source,
             params Expression<Func<TDestination, object>>[] membersToExPand)
         {
-            if(source == null)
+            if (source == null)
             {
                 throw new ArgumentNullException(nameof(source));
             }
             //source.ProjectTo: Sử dụng AutoMapper để thực hiện ánh xạ từ source
             //null: chế độ mở rọng(expand mode) có nghĩa là mọi thành viên đều được mở rộng (bố sung thêm t.t vào kết quả ánh xạ)
             return source.ProjectTo(AutoMapperConfig.MapperInstance.ConfigurationProvider, null, membersToExPand);
+        }
+
+        public static IQueryable<TDestination> To<TDestination>(
+        this IQueryable source,
+        object parameters)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+
+            return source.ProjectTo<TDestination>(AutoMapperConfig.MapperInstance.ConfigurationProvider, parameters);
         }
     }
 }

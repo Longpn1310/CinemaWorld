@@ -11,5 +11,5 @@ public partial class Privacy : BaseDeletableModel<int>
 
     [Required]
     [MaxLength(ContentPageMaxLength)]
-    public string PageContent { get; set; } = null!;
+    public string PageContent { get; set; }
 }

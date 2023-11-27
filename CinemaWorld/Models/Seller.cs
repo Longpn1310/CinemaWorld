@@ -6,7 +6,7 @@
 
     using CinemaWorld.Data.Common;
     using CinemaWorld.Data.Common.Models;
-    using CinemaWorld.ViewModels.Enumerations;
+    using CinemaWorld.Models.Enumerations;
     using static CinemaWorld.Global.Common.DataValidation;
 
     public class Seller : BaseDeletableModel<int>

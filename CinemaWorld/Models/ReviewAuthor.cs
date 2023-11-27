@@ -14,7 +14,7 @@ public partial class ReviewAuthor : IDeletableEntity
 
     public DateTime? DeletedOn { get; set; }
 
-    public virtual Author Author { get; set; } = null!;
+    public virtual Author Author { get; set;}
 
-    public virtual Review Review { get; set; } = null!;
+    public virtual Review Review { get; set; }
 }

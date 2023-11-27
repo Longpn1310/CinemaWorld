@@ -1,16 +1,18 @@
-﻿using CinemaWorld.Services.Services.Data.Contracts;
+﻿using CinemaWorld.Helper;
+using CinemaWorld.Services.Services.Data.Contracts;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using Microsoft.Extensions.Options;
 
 namespace CinemaWorld.Services.Services.Data
 {
     //Cloudinary la 1 dich vu quan ly tep da phuong tien hinh anh va video
     public class CloudinaryService : ICloudinaryService
     {
+        private readonly Cloudinary cloudinary;
         public CloudinaryService(Cloudinary cloudinary)
         {
             this.cloudinary = cloudinary;
-
         }
         public async Task<string> UpLoadAsync(IFormFile file, string fileName)
         {

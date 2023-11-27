@@ -1,19 +1,21 @@
-﻿using AutoMapper;
-using CinemaWorld.Models;
-using CinemaWorld.Services.Services.Data.Mapping;
-
-namespace CinemaWorld.ViewModels.ViewModels.Movies
+﻿namespace CinemaWorld.ViewModels.ViewModels.Movies
 {
-    public class TopRatingMovieDetailsViewModel : IMapFrom<Movie>, IHaveCustomMappings
+    using System;
+    using System.Linq;
+    using AutoMapper;
+    using CinemaWorld.Models;
+    using CinemaWorld.Services.Services.Data.Mapping;
+       public class TopRatingMovieDetailsViewModel : IMapFrom<Movie>, IHaveCustomMappings
     {
         public int Id { get; set; }
-        public string CoverPath { get;set; }
+
+        public string CoverPath { get; set; }
+
         public string Name { get; set; }
+
         public int StarRatingsSum { get; set; }
 
         public DateTime DateOfRelease { get; set; }
-
-
 
         public void CreateMappings(IProfileExpression configuration)
         {

@@ -1,4 +1,5 @@
 ﻿using CinemaWorld.Data.Common.Models;
+using CinemaWorld.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,26 +16,28 @@ public partial class News : BaseDeletableModel<int>
 
     [Required]
     [MaxLength(TitleMaxLength)]
-    public string Title { get; set; } = null!;
+    public string Title { get; set; }
 
     [Required]
     [MaxLength(DescriptionMaxLength)]
-    public string Description { get; set; } = null!;
+    public string Description { get; set; }
+
+    [Required]
+    [MaxLength(ShortDescriptionMaxLength)]
+    public string ShortDescription { get; set; }
 
     [Required]
     [MaxLength(ImagePathMaxLength)]
-    public string ShortDescription { get; set; } = null!;
+    public string ImagePath { get; set; }
+
     [Required]
-    [MaxLength(ImagePathMaxLength)]
-    public string ImagePath { get; set; } = null!;
-    [Required]
-    public string UserId { get; set; } = null!;
+    public string UserId { get; set; }
+
+    public virtual CinemaWorldUser User { get; set; }
 
     public int ViewsCounter { get; set; }
 
     public bool IsUpdated { get; set; }
 
-    public virtual ICollection<NewsComment> NewsComments { get; set; } = new List<NewsComment>();
-
-    public virtual AspNetUser User { get; set; } = null!;
+    public virtual ICollection<NewsComment> NewsComments { get; set; }
 }

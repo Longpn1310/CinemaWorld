@@ -1,5 +1,5 @@
 ﻿using CinemaWorld.Data.Common.Models;
-using CinemaWorld.ViewModels.Enumerations;
+using CinemaWorld.Models.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,67 +9,70 @@ namespace CinemaWorld.Models;
 
 public class Movie : BaseDeletableModel<int>
 {
-    public Movie(){  
+    public Movie()
+    {
         this.MovieGenres = new HashSet<MovieGenre>();
         this.MovieReviews = new HashSet<MovieReview>();
         this.MovieCountries = new HashSet<MovieCountry>();
         this.MovieActors = new HashSet<MovieActor>();
-        this.MovieProjections = new HashSet<MovieProjection>();
+        this.Projections = new HashSet<MovieProjection>();
         this.MovieComments = new HashSet<MovieComment>();
     }
+
     [Required]
     [MaxLength(NameMaxLength)]
-    public string Name { get; set; } = null!;
+    public string Name { get; set; }
 
     [Required]
     public DateTime DateOfRelease { get; set; }
 
-    public string Resolution { get; set; }
+    public string Resolution { get; set; } // HD, SD quality
 
     public decimal Rating { get; set; }
 
     [Required]
     [MaxLength(DescriptionMaxLength)]
-    public string Description { get; set; } = null!;
+    public string Description { get; set; }
 
     [Required]
     [MaxLength(LanguageMaxLength)]
-    public string Language { get; set; } = null!;
+    public string Language { get; set; }
 
     [Required]
-    public CinemaCategory CinemaCategory { get; set; } //A, B, C ,D
+    public CinemaCategory CinemaCategory { get; set; } // A, B, C, D
 
     [MaxLength(TrailerPathMaxLength)]
-    public string? TrailerPath { get; set; }
+    public string TrailerPath { get; set; }
 
     [Required]
     [MaxLength(CoverPathMaxLength)]
-    public string CoverPath { get; set; } = null!;
+    public string CoverPath { get; set; }
 
     [Required]
     [MaxLength(WallpaperPathMaxLength)]
-    public string WallpaperPath { get; set; } = null!;
+    public string WallpaperPath { get; set; }
 
     [MaxLength(ImdbLinkMaxLength)]
-    public string? IMDBlink { get; set; }
+    public string IMDBLink { get; set; }
 
     public int Length { get; set; }
 
     public int DirectorId { get; set; }
 
-    public virtual Director Director { get; set; } = null!;
+    public virtual Director Director { get; set; }
 
-    public virtual ICollection<MovieActor> MovieActors { get; set; } = new List<MovieActor>();
+    public virtual ICollection<MovieGenre> MovieGenres { get; set; }
 
-    public virtual ICollection<MovieComment> MovieComments { get; set; } = new List<MovieComment>();
+    public virtual ICollection<MovieReview> MovieReviews { get; set; }
 
-    public virtual ICollection<MovieCountry> MovieCountries { get; set; } = new List<MovieCountry>();
+    public virtual ICollection<MovieCountry> MovieCountries { get; set; }
 
-    public virtual ICollection<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();
+    public virtual ICollection<MovieActor> MovieActors { get; set; }
 
-    public virtual ICollection<MovieProjection> MovieProjections { get; set; } = new List<MovieProjection>();
+    public virtual ICollection<MovieProjection> Projections { get; set; }
 
-    public virtual ICollection<MovieReview> MovieReviews { get; set; } = new List<MovieReview>();
+    public virtual ICollection<StarRating> Ratings { get; set; }
 
-    public virtual ICollection<StarRating> Ratings { get; set; } = new List<StarRating>();
+    public virtual ICollection<MovieComment> MovieComments { get; set; }
 }
+

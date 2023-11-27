@@ -15,7 +15,7 @@ public class Genre : BaseDeletableModel<int>
 
     [Required]
     [MaxLength(NameMaxLength)]
-    public string Name { get; set; } = null!;
+    public string Name { get; set; }
 
     public virtual ICollection<MovieGenre> MovieGenres { get; set; } = new List<MovieGenre>();
 }

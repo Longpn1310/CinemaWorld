@@ -2,7 +2,7 @@
 {
     public class DetailsListingViewModel
     {
-        public MovieDetailsViewModel movieDetailsViewModel { get; set; }
+        public MovieDetailsViewModel MovieDetailsViewModel { get; set; }
         public IEnumerable<TopRatingMovieDetailsViewModel> AllMovies { get; set; }
     }
 }

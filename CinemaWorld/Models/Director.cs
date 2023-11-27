@@ -13,11 +13,11 @@ public partial class Director : BaseDeletableModel<int>
     }
     [Required]
     [MaxLength(DataValidation.NameMaxLength)]
-    public string FirstName { get; set; } = null!;
+    public string FirstName { get; set; }
 
     [Required]
     [MaxLength(DataValidation.NameMaxLength)]
-    public string LastName { get; set; } = null!;
+    public string LastName { get; set; }
 
     public virtual ICollection<Movie> Movies { get; set; } = new List<Movie>();
 }

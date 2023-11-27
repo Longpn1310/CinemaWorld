@@ -1,4 +1,9 @@
 ﻿using CinemaWorld.Models;
+using CinemaWorld.Services.Services.Data.Contract;
+using CinemaWorld.Services.Services.Data.Contracts;
+using CinemaWorld.ViewModels;
+using CinemaWorld.ViewModels.Privacy;
+using CinemaWorld.ViewModels.ViewModels.Movies;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,27 +11,87 @@ namespace CinemaWorld.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private const int TopMoviesInHeaderSliderRating = 6;
+        private const int TopMoviesRating = 40;
 
-        public HomeController(ILogger<HomeController> logger)
+        private const int TopMoviesCount = 12;
+        private const int TopMoviesInHeaderSliderCount = 6;
+        private const int RecentlyAddedMoviesCount = 12;
+        private const int MostPopularMoviesCount = 3;
+
+        private readonly IMoviesService moviesService;
+        private readonly IPrivacyService privacyService;
+
+        public HomeController(IMoviesService moviesService, IPrivacyService privacyService)
         {
-            _logger = logger;
+            this.moviesService = moviesService;
+            this.privacyService = privacyService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string email)
         {
-            return View();
+            if (email != null)
+            {
+                return this.RedirectToAction("ThankYouSubscription", new { email = email });
+            }
+
+            var allMovies = await this.moviesService
+                .GetAllMoviesAsync<TopRatingMovieDetailsViewModel>();
+            var topMoviesInSlider = await this.moviesService
+                .GetTopImdbMoviesAsync<SliderMovieDetailsViewModel>(TopMoviesInHeaderSliderRating, TopMoviesInHeaderSliderCount);
+            var topRatingMovies = await this.moviesService
+                .GetTopRatingMoviesAsync<TopRatingMovieDetailsViewModel>(TopMoviesRating, TopMoviesCount);
+            var recentlyAddedMovies = await this.moviesService
+                .GetRecentlyAddedMoviesAsync<RecentlyAddedMovieDetailsViewModel>(RecentlyAddedMoviesCount);
+            var mostPopularMovies = await this.moviesService
+                .GetMostPopularMoviesAsync<MostPopularDetailsViewModel>(MostPopularMoviesCount);
+
+            var viewModel = new MoviesHomePageListingViewModel
+            {
+                AllMovies = allMovies,
+                TopMoviesInSlider = topMoviesInSlider,
+                TopRatingMovies = topRatingMovies,
+                RecentlyAddedMovies = recentlyAddedMovies,
+                MostPopularMovies = mostPopularMovies,
+            };
+
+            return this.View(viewModel);
         }
 
-        public IActionResult Privacy()
+        public IActionResult ThankYouSubscription(string email)
         {
-            return View();
+            return this.View("SuccessfullySubscribed", email);
+        }
+
+        public async Task<IActionResult> Privacy()
+        {
+            var privacy = await this.privacyService.GetViewModelAsync<PrivacyDetailsViewModel>();
+
+            return this.View(privacy);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(HttpErrorViewModel errorViewModel)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (errorViewModel.StatusCode == 404)
+            {
+                return this.View(
+                "Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+            }
+
+            return this.View(
+                new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult HttpError(HttpErrorViewModel errorViewModel)
+        {
+            if (errorViewModel.StatusCode == 404)
+            {
+                return this.View(errorViewModel);
+            }
+
+            return this.View(
+                "Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }

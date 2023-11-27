@@ -8,17 +8,20 @@ namespace CinemaWorld.Controllers
 {
     public class MoviesController : Controller
     {
-        private const int pageSize = 10;
-        private readonly IMoviesService moviesService;  
+        private const int PageSize = 10;
+
+        private readonly IMoviesService moviesService;
 
         public MoviesController(IMoviesService moviesService)
         {
             this.moviesService = moviesService;
         }
-        public async Task<IActionResult> All(string searchString, string currentFilter,string selectedLetter, int? pageNumber)
+
+        public async Task<IActionResult> All(string searchString, string currentFilter, string selectedLetter, int? pageNumber)
         {
             this.ViewData["Current"] = nameof(this.All);
-            if(searchString != null)
+
+            if (searchString != null)
             {
                 pageNumber = 1;
             }
@@ -26,27 +29,32 @@ namespace CinemaWorld.Controllers
             {
                 searchString = currentFilter;
             }
+
+            this.ViewData["CurrentSearchFilter"] = searchString;
             var movies = this.moviesService
                 .GetAllMoviesByFilterAsQueryeable<MovieDetailsViewModel>(selectedLetter);
+
             if (!string.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(m => m.Name.ToLower().Contains(searchString.ToLower()));  
+                movies = movies.Where(m => m.Name.ToLower().Contains(searchString.ToLower()));
             }
-            var moviesPaginated = await PaginatedList<MovieDetailsViewModel>.CreateAsync(movies, pageNumber ?? 1, pageSize);
 
-            var alphabeticalPagingViewModel = new AlphabeticalPagingViewModel()
+            var moviesPaginated = await PaginatedList<MovieDetailsViewModel>.CreateAsync(movies, pageNumber ?? 1, PageSize);
+
+            var alphabeticalPagingViewModel = new AlphabeticalPagingViewModel
             {
-                SelectedLetter = selectedLetter
+                SelectedLetter = selectedLetter,
             };
+
             var viewModel = new MoviesListingViewModel
             {
                 Movies = moviesPaginated,
-                AlphabeticalPagingViewModel = alphabeticalPagingViewModel
+                AlphabeticalPagingViewModel = alphabeticalPagingViewModel,
             };
 
             return this.View(viewModel);
-
         }
+
         public async Task<IActionResult> Details(int id)
         {
             var movie = await this.moviesService.GetViewModelByIdAsync<MovieDetailsViewModel>(id);
@@ -57,9 +65,10 @@ namespace CinemaWorld.Controllers
 
             var viewModel = new DetailsListingViewModel
             {
-                movieDetailsViewModel = movie,
-                AllMovies = topRatingMovies
+                MovieDetailsViewModel = movie,
+                AllMovies = topRatingMovies,
             };
+
             return this.View(viewModel);
         }
     }

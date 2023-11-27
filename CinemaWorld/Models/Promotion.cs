@@ -13,7 +13,7 @@ public partial class Promotion : BaseDeletableModel<int>
     }
     [Required]
     [MaxLength(DescriptionMaxLength)]
-    public string Description { get; set; } = null!;
+    public string Description { get; set; }
 
     public decimal Discount { get; set; }
     [Required]

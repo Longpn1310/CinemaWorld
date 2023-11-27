@@ -1,5 +1,5 @@
 ﻿using CinemaWorld.Data.Common.Models;
-using CinemaWorld.ViewModels.Enumerations;
+using CinemaWorld.Models.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -24,11 +24,11 @@ public partial class SaleTransaction : BaseDeletableModel<string>
 
     public PaymentMethod PaymentMethod { get; set; }
 
-    public virtual MovieProjection MovieProjection { get; set; } = null!;
+    public virtual MovieProjection MovieProjection { get; set; }
 
     public virtual Promotion? Promotion { get; set; }
 
-    public virtual Ticket Ticket { get; set; } = null!;
+    public virtual Ticket Ticket { get; set; }
 
     public virtual AspNetUser? User { get; set; }
 }

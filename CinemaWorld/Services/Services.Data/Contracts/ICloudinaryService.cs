@@ -1,4 +1,6 @@
-﻿using CloudinaryDotNet;
+﻿using CinemaWorld.Helper;
+using CloudinaryDotNet;
+using Microsoft.Extensions.Options;
 
 namespace CinemaWorld.Services.Services.Data.Contracts
 {
