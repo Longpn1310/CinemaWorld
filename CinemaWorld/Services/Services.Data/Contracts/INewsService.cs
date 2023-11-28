@@ -1,11 +1,10 @@
 ﻿using CinemaWorld.InputModels.AdministratorInputModels.News;
 using CinemaWorld.Services.Services.Data.Contract;
-using CinemaWorld.Services.Services.Data.Mappings;
 using CinemaWorld.ViewModels.News;
 
 namespace CinemaWorld.Services.Services.Data.Contracts
 {
-    public interface INewService : IBaseDataService
+    public interface INewsService : IBaseDataService
     {
         Task<AllNewsListingViewModel> CreateAsync(NewsCreateInputModel newsCreateInputModel, string userId);
 

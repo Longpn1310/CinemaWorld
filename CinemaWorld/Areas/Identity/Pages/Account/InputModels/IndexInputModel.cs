@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CinemaWorld.Areas.Identity.Pages.Account.Manage
+namespace CinemaWorld.Areas.Identity.Pages.Account.InputModels
 {
     public class IndexInputModel
     {

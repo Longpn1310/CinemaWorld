@@ -3,7 +3,7 @@
     using System.Text;
     using System.Text.Encodings.Web;
     using System.Threading.Tasks;
-    using CinemaWorld.Areas.Identity.Pages.Account.Manage;
+    using CinemaWorld.Areas.Identity.Pages.Account.InputModels;
     using CinemaWorld.Data.Models;
     using CinemaWorld.Models;
     using Microsoft.AspNetCore.Identity;

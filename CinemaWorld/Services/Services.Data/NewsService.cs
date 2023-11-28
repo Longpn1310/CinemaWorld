@@ -10,7 +10,7 @@ using CinemaWorld.Models;
 
 namespace CinemaWorld.Services.Services.Data
 {
-    public class NewsService : INewService
+    public class NewsService : INewsService
     {
         private readonly IDeletableEntityRepository<News> newsRepository;
         private readonly ICloudinaryService cloudinaryService;

@@ -1,12 +1,12 @@
 ﻿using CinemaWorld.Global.Common.Atrributes;
-using CinemaWorld.Models;
 using CinemaWorld.Services.Services.Data.Mapping;
 using System.ComponentModel.DataAnnotations;
 using static CinemaWorld.Global.Common.ModelValidation;
 using static CinemaWorld.Global.Common.ModelValidation.News;
-namespace CinemaWorld.Services.Services.Data.Mappings
+namespace CinemaWorld.ViewModels.News
 {
-    public class NewsEditViewModel : IMapFrom<Models.News>
+    using News = CinemaWorld.Models.News;
+    public class NewsEditViewModel : IMapFrom<News>
     {
         public int Id { get; set; }
 
@@ -29,7 +29,7 @@ namespace CinemaWorld.Services.Services.Data.Mappings
 
         [DataType(DataType.Upload)]
         [MaxFileSize(ImageMaxSize)]
-        [AllowedExtensionAttribute]
+        [AllowedExtension]
         [Display(Name = NewImageDisplayName)]
         public IFormFile Image { get; set; }
     }

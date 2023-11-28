@@ -80,7 +80,7 @@ builder.Services.AddSingleton(cloudinary);
 builder.Services.AddTransient<IContactsService, ContactsService>();
 builder.Services.AddTransient<IAboutService, AboutService>();
 builder.Services.AddTransient<IRatingsService, RatingsService>();
-builder.Services.AddTransient<INewService, NewsService>();
+builder.Services.AddTransient<INewsService, NewsService>();
 builder.Services.AddTransient<IHallsService, HallsService>();
 builder.Services.AddTransient<ISeatsService, SeatsService>();
 builder.Services.AddTransient<IMovieProjectionsService, MovieProjectionsService>();
