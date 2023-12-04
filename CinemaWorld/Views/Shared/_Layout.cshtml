@@ -1,4 +1,4 @@
-﻿@using CinemaWorld.Global.Common;
+﻿@using CinemaWorld.Global.Common
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,20 +10,19 @@
     <meta name="keywords" content="Cinema World" />
     <script type="application/x-javascript">
         addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-               function hideURLbar(){ window.scrollTo(0,1); }
+               function hideURLbar(){ window.scrollTo(0,1); } 
     </script>
     <!-- //for-mobile-apps -->
 
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
 
     <environment names="Development">
-        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
-        <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
+        <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
+        <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
         <link rel="stylesheet" href="/css/contactstyle.css" type="text/css" media="all" asp-append-version="true" />
         <link rel="stylesheet" href="/css/subscription.css" type="text/css" media="all" asp-append-version="true" />
-        <link rel="stylesheet" href="/css/faqstyle.css" type="text/css" media="all" asp-append-version="true" />
         <link href="~/css/single.css" rel='stylesheet' type='text/css' asp-append-version="true" />
-        <link href="/css/medile.css" rel='stylesheet' type='text/css' asp-append-version="true" />
+        <link href="~/css/medile.css" rel='stylesheet' type='text/css' asp-append-version="true" />
         <link rel='icon' href='~/favicon.ico' type='image/x-icon' />
         <!-- bootstrap-select -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
@@ -56,7 +55,7 @@
     <environment names="Staging,Production">
         <link href="~/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
         <link href="~/css/style.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
-        <link href="~/css/contactstyle.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
+        <link href="~/css/contactstyle.css" rel="stylesheet"  type="text/css" media="all" asp-append-version="true" />
         <link href="~/css/subscription.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
         <link href="~/css/faqstyle.css" rel="stylesheet" type="text/css" media="all" asp-append-version="true" />
         <link href="~/css/single.css" rel='stylesheet' type='text/css' asp-append-version="true" />
@@ -120,8 +119,8 @@
         <nav class="social">
             <ul>
                 <li class="w3_twitter"><a href="https://twitter.com/phamlong1310">Twitter <i class="fa fa-twitter"></i></a></li>
-                <li class="w3_facebook"><a href="https://www.facebook.com/phamlong1310/">Facebook <i class="fa fa-facebook"></i></a></li>
-                <li class="w3_instagram"><a href="https://www.instagram.com/phnglonggg/">Instagram <i class="fa fa-instagram"></i></a></li>
+                <li class="w3_facebook"><a href="https://www.facebook.com/longpn1310">Facebook <i class="fa fa-facebook"></i></a></li>
+                <li class="w3_instagram"><a href="https://www.instagram.com/phnglongggg">Instagram <i class="fa fa-instagram"></i></a></li>
             </ul>
         </nav>
     </div>
@@ -145,17 +144,12 @@
         <script src="~/js/scripts.js" asp-append-version="true"></script>
         <script type="text/javascript" src="~/js/jquery-2.1.4.min.js" asp-append-version="true"></script>
         <script src="~/js/owl.carousel.js" asp-append-version="true"></script>
-        <!--sử dụng thưu viện Owl Carousel
-            Tự động chuyển slide sau mỗi 3 giây (3000)
-            items: 5 số lượng items hiển thị trên carousel
-            itemsDesktop[640,4]: Số lượng items khi độ phân giải màn hình là 640px là 4
-            itemsDesktopSmall: [414,3]: Số lượng items khi độ phân giải màn hình là 414px là 3
-        -->
         <script>
             $(document).ready(function () {
                 $("#owl-demo").owlCarousel({
 
-                    autoPlay: 3000,
+                    autoPlay: 3000, //Set AutoPlay to 3 seconds
+
                     items: 5,
                     itemsDesktop: [640, 4],
                     itemsDesktopSmall: [414, 3]
@@ -167,14 +161,6 @@
         <!-- start-smoth-scrolling -->
         <script type="text/javascript" src="~/js/move-top.js"></script>
         <script type="text/javascript" src="~/js/easing.js"></script>
-        <!--jQuery(document).ready đảm bảo mã Js sẽ được thực thi sau khi toàn bộ Html được tải xong
-            $(".scroll").click(funtion(event){...} Cách chọn tất cả các phần tử có class là "scroll" và gắn sự kiện "click" lên chúng)
-            event.preventDefault() Ngăn chặn hành vi mặc định của sự kiện click( ở đây là chuyển hướng trang khi click vào link)
-            $('html,body').animte tạo hiệu ứng cuộn mượt. Khi người dùng nhấp vào một liên kết có class là "scroll", nó sẽ cuộn lên web có vị trí 'id'
-            tương ướng với thuộc tính 'hash'
-            mất khoảng 1000 milisec để thực hiện
-            Đây là sử dụng để tạo hiệu ứng mượt khi nhấp vào các liên kết có class là "scroll"
-        -->
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
                 $(".scroll").click(function (event) {

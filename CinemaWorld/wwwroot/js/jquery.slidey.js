@@ -3,8 +3,8 @@
 /*! jQuery Bootstrap Slidey - v0.0.1 - 2016-01-11
  * http://www.tahapaksu.com
  * Copyright (c) 2016 Taha PAKSU; Licensed  */
-(function($) {
-    $.slidey = function(el, options) {
+(function ($) {
+    $.slidey = function (el, options) {
         // To avoid scope issues, use 'base' instead of 'this'
         // to reference this class from internal events and functions.
         var base = this;
@@ -19,7 +19,7 @@
         base.activeSlideIndex = -1;
         base.timer = 0;
         base.hfr = 0;
-        base.init = function() {
+        base.init = function () {
             base.options = $.extend({}, $.slidey.defaultOptions, options);
             // Put your initialization code here
             base.fetchSlides();
@@ -29,9 +29,9 @@
             base.gotoSlide(2);
             base.startSliding();
         };
-        base.fetchSlides = function() {
+        base.fetchSlides = function () {
             if (base.$el.find("ul").size() > 0) {
-                base.$el.find("ul").first().children("li").each(function() {
+                base.$el.find("ul").first().children("li").each(function () {
                     var slide = {},
                         $this = $(this);
                     slide.image = ($this.find("img").size() > 0) ? $this.find("img").first().attr("src") : -1;
@@ -44,7 +44,7 @@
                 });
             }
         };
-        base.constructLayout = function() {
+        base.constructLayout = function () {
             // hide the container first.
             base.$el.hide();
             // build new structure
@@ -72,7 +72,7 @@
 
             // create controls
             var controls = "<div class='slidey-controls slidey-controls-previous'><i class='fa fa-chevron-left'></i></div>";
-               controls += "<div class='slidey-controls slidey-controls-next'><i class='fa fa-chevron-right'></i></div>";
+            controls += "<div class='slidey-controls slidey-controls-next'><i class='fa fa-chevron-right'></i></div>";
 
             base.layout.$image.append(controls);
 
@@ -101,14 +101,14 @@
             // calculate list item heights
             var sliderHeight = base.layout.$image.innerHeight();
             var oneSlideListItemHeight = parseInt(sliderHeight) / base.options.listCount;
-            
+
             // set list item thumbnail dimensions
             var thumbWidth = oneSlideListItemHeight - 9;
             base.layout.$list.find(".slidey-list-thumbnail").css("width", thumbWidth).css("height", thumbWidth);
             base.addEventListeners();
-            
+
             // set list item heights
-            base.layout.$list.find("li").each(function() {
+            base.layout.$list.find("li").each(function () {
                 var $this = $(this);
                 var spaceBetweenSlides = $this.outerHeight() - $this.innerHeight();
                 $this.height(oneSlideListItemHeight - spaceBetweenSlides);
@@ -121,32 +121,32 @@
             // add nodes if required
             base.prepareNodes();
         };
-        base.addEventListeners = function() {
-            base.layout.$list.on("click", "li", function() {
+        base.addEventListeners = function () {
+            base.layout.$list.on("click", "li", function () {
                 base.gotoSlide(base.layout.$list.find("li").index($(this)));
             });
-            base.layout.$image.on("click", ".slidey-controls-previous", function(){
+            base.layout.$image.on("click", ".slidey-controls-previous", function () {
                 base.stopTimer();
                 base.slidePrevious();
             });
-            base.layout.$image.on("click", ".slidey-controls-next", function(){
+            base.layout.$image.on("click", ".slidey-controls-next", function () {
                 base.stopTimer();
                 base.slideNext();
             });
         };
-        base.showLoading = function() {};
-        base.hideLoading = function() {};
-        base.startSliding = function() {
+        base.showLoading = function () { };
+        base.hideLoading = function () { };
+        base.startSliding = function () {
             base.gotoSlide(0);
         };
-        base.startTimer = function() {
+        base.startTimer = function () {
             base.timer = setTimeout(base.slideNext, base.options.interval);
             base.layout.overlay.$progress.stop(true, true).css("width", "0");
             base.layout.overlay.$progress.animate({
                 width: base.layout.overlay.progressWidth + "px"
             }, base.options.interval);
         };
-        base.stopTimer = function() {
+        base.stopTimer = function () {
             clearTimeout(base.timer);
             base.layout.overlay.$progress.stop();
             base.layout.$overlay.stop();
@@ -154,13 +154,13 @@
                 base.layout.overlay.progressWidth = base.layout.overlay.$progress.originalWidth();
             }
         };
-        base.slideNext = function() {
+        base.slideNext = function () {
             base.gotoSlide(base.activeSlideIndex + 1);
         };
-        base.slidePrevious = function() {
+        base.slidePrevious = function () {
             base.gotoSlide(base.activeSlideIndex - 1);
         };
-        base.gotoSlide = function(slideIndex) {
+        base.gotoSlide = function (slideIndex) {
             if (slideIndex < 0) {
                 slideIndex = base.slides.length - 1;
             } else if (slideIndex >= base.slides.length) {
@@ -171,7 +171,7 @@
             if (base.options.showList) {
                 base.layout.$list.find("li").eq(slideIndex).scrollToView(".slidey-list", base.options.listCount);
             }
-            base.layout.$overlay.fadeOut("fast", function() {
+            base.layout.$overlay.fadeOut("fast", function () {
                 if (base.options.showList) {
                     base.layout.$list.find("li").removeClass("slidey-active");
                     base.layout.$list.find("li").eq(slideIndex).addClass("slidey-active");
@@ -184,32 +184,26 @@
                 base.startTimer();
             });
         };
-        base.prepareNodes = function(){
-            if(base.options.showNodes)
-            {
-                if(base.options.nodeContainer !== "" && $(base.options.nodeContainer).size() > 0)
-                {
+        base.prepareNodes = function () {
+            if (base.options.showNodes) {
+                if (base.options.nodeContainer !== "" && $(base.options.nodeContainer).size() > 0) {
                     base.layout.$nodeContainer = $(base.options.nodeContainer);
                     var $nodebase = $("<div class='slidey-node-container'></ul>");
-                    for (var slideIndex = 0; slideIndex < base.slides.length; slideIndex++) 
-                    {
+                    for (var slideIndex = 0; slideIndex < base.slides.length; slideIndex++) {
                         var node = "<div class='slidey-node' style='background-image: url(\"" + base.slides[slideIndex].image + "\");'></div>";
                         $nodebase.append(node);
                     }
                     base.layout.$nodeContainer.empty().append($nodebase);
 
-                    $(".slidey-node",base.layout.$nodeContainer).on("click", function(){
+                    $(".slidey-node", base.layout.$nodeContainer).on("click", function () {
                         base.gotoSlide(base.layout.$nodeContainer.find(".slidey-node").index($(this)));
                     });
                 }
             }
         };
-        base.selectNode = function(nodeIndex)
-        {
-            if(base.options.showNodes)
-            {
-                if(base.options.nodeContainer !== "" && $(base.options.nodeContainer).size() > 0)
-                {
+        base.selectNode = function (nodeIndex) {
+            if (base.options.showNodes) {
+                if (base.options.nodeContainer !== "" && $(base.options.nodeContainer).size() > 0) {
                     var $nodes = base.layout.$nodeContainer.find(".slidey-node");
                     $nodes.removeClass("active");
                     $nodes.eq(nodeIndex).addClass("active");
@@ -226,14 +220,14 @@
         showNodes: false,
         nodeContainer: ""
     };
-    
-    $.fn.slidey = function(options) {
-        return this.each(function() {
+
+    $.fn.slidey = function (options) {
+        return this.each(function () {
             (new $.slidey(this, options));
         });
     };
 
-    $.fn.scrollToView = function(parentSelector, listCount) {
+    $.fn.scrollToView = function (parentSelector, listCount) {
         var $this = $(this);
         var $parent = $this.parents(parentSelector).first();
         var itemIndex = $this.parent().find("li").index($this.get(0));
@@ -250,7 +244,7 @@
             }
         }
     };
-    $.fn.originalWidth = function() {
+    $.fn.originalWidth = function () {
         var domElement = $(this)[0];
         if (typeof domElement !== "undefined") {
             return domElement.getBoundingClientRect().width;
@@ -258,7 +252,7 @@
             return null;
         }
     };
-    $.fn.originalHeight = function() {
+    $.fn.originalHeight = function () {
         var domElement = $(this)[0];
         if (typeof domElement !== "undefined") {
             return domElement.getBoundingClientRect().height;

@@ -11,16 +11,16 @@
         <input asp-for="Username" placeholder="Username">
         <input asp-for="Password" placeholder="Password">
         <input type="submit" value="Login">
-        <hr/>
+        <hr />
     </form>
     <form asp-area="" asp-controller="Users" asp-action="FacebookLogin" method="post">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Login with Facebook</button>
     </form>
 </div>
 
-<body>
 <script>
     $('#formLoginAjax').submit(function (event) {
+        console.log('Data before sending:', $('#formLoginAjax').serialize());
         event.preventDefault();
         var json = { success: false, message: '', action: '' };
         $.ajax({
@@ -56,4 +56,3 @@
         });
     });
 </script> 
-</body>

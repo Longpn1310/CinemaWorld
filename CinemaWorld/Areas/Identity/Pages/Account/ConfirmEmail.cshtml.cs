@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Web.Areas.Identity.Pages.Account
+﻿namespace CinemaWorld.Areas.Identity.Pages.Account
 {
     using System.Text;
     using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Web.Areas.Identity.Pages.Account
+﻿namespace CinemaWorld.Areas.Identity.Pages.Account
 {
     using Microsoft.AspNetCore.Mvc.RazorPages;
 

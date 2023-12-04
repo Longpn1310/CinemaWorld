@@ -1,4 +1,4 @@
-﻿namespace CinemaWorld.Web.Areas.Identity.Pages.Account.Manage
+﻿namespace CinemaWorld.Areas.Identity.Pages.Account.Manage
 {
     using System.Text;
     using System.Text.Encodings.Web;

@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<CinemaWorldUser> SignInManager
 @inject UserManager<CinemaWorldUser> UserManager
-<link href="css/spinner-loader.css" rel="stylesheet" asp-append-version="true">
+<link href="/css/spinner-loader.css" rel="stylesheet" asp-append-version="true">
 @if (this.SignInManager.IsSignedIn(this.User))
 {
     <div class="nav-item">

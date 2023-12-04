@@ -20,6 +20,7 @@ using CinemaWorld.Models;
 using System.Reflection;
 using CinemaWorld.Services.Services.Data.Mapping;
 using CinemaWorld.Middlewares;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
@@ -27,20 +28,29 @@ builder.Services.AddDbContext<CinemaWorldDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyCnn")));
 
 
-builder.Services.AddDefaultIdentity<CinemaWorldUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<CinemaWorldDbContext>();
-builder.Services.AddIdentityCore<IdentityUser>().AddRoles<IdentityRole>().AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("FPTContext")
-    .AddEntityFrameworkStores<CinemaWorldDbContext>().AddDefaultTokenProviders();
-
-builder.Services.Configure<IdentityOptions>(options =>
+builder.Services.AddSession(options =>
 {
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequiredLength = 6;
-    options.Password.RequiredUniqueChars = 1;
+    options.IdleTimeout = new TimeSpan(0, 6, 0, 0);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
 });
-
+builder.Services.AddDefaultIdentity<CinemaWorldUser>(IdentityOptionsProvider.GetIdentityOptions)
+                .AddRoles<ApplicationRole>()
+                .AddEntityFrameworkStores<CinemaWorldDbContext>();
+//builder.Services.AddIdentityCore<IdentityUser>().AddRoles<IdentityRole>().AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("FPTContext")
+//.AddEntityFrameworkStores<CinemaWorldDbContext>().AddDefaultTokenProviders();
+builder.Services.AddControllersWithViews(configure =>
+{
+    configure.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+});
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+});
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "X-CSRF-TOKEN";
+});
 // Cau hinh de dam bao su dong y cua nguoi dung can kiem tra
 builder.Services.Configure<CookiePolicyOptions>(
     options =>
