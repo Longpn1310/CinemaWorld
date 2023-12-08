@@ -2,7 +2,7 @@
 
 - Admin Page
 ![image](https://github.com/Longpn1310/CinemaWorld/assets/73568742/86051cfc-03b0-4bc0-8764-77621d23f56c)
--Home Page
+- Home Page
 ![image](https://github.com/Longpn1310/CinemaWorld/assets/73568742/ec4b9e53-e249-4882-9809-02d24ae184cd)
 - News Page 
 ![image](https://github.com/Longpn1310/CinemaWorld/assets/73568742/70426662-3097-4842-83a7-d7048bc1e600)
